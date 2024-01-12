@@ -103,7 +103,7 @@ fi
 #  Support for multiple .conf files  #
 ######################################
 
-# cancel if either directory nor .conf files exists
+# cancel if neither directory nor .conf files exists
 if [ ! -d "./${script_name}" ] || [ "$(find ./"${script_name}"/ -name "*.conf" -type f 2>/dev/null | wc -l)" -eq 0 ]; then
   echo ".conf file does not exist. Please create a file named ${conf_file} or provide at least one via directory ./${script_name}/*.conf"
   exit 1
