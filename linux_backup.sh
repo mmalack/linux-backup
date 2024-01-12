@@ -78,11 +78,8 @@ excludes_file="$WORKING_DIR/$script_name.excludes"
 #  Dependencies  #
 ##################
 
-# load .conf file
-load_conf_file
-
 # check if rsync is installed
-command -v rsync >/dev/null 2>&1 || { echo >&2 "rsync is required but not installed. Aborting..."; exit 1; }
+#command -v rsync >/dev/null 2>&1 || { echo >&2 "rsync is required but not installed. Aborting..."; exit 1; }
 
 # check if tar is installed
 command -v tar >/dev/null 2>&1 || { echo >&2 "tar is required but not installed. Aborting..."; exit 1; }
@@ -94,7 +91,10 @@ command -v tar >/dev/null 2>&1 || { echo >&2 "tar is required but not installed.
 
 # if an individual .conf file exists, process it and ignore the directory
 if [ -f "$conf_file" ]; then
+
+  load_conf_file
   backup_tasks
+
   exit 1;
 fi
 
